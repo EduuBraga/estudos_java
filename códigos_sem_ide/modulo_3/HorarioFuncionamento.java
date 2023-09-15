@@ -18,7 +18,7 @@ public class HorarioFuncionamento {
 	}
 
         yield "7:00 as 12:00";      
-      }
+      };
       case "dom" -> "Fechado";
       default -> "Dia invalido";
     };
