@@ -4,19 +4,24 @@ public class ControlePesoAeronave_LacosRepeticao {
   public static void main(String[] args) { 
     Scanner entrada = new Scanner(System.in);
 
-    System.out.print("Peso maximo aeronave: ");
+    System.out.print("Peso maximo da aeronave: ");
     int pesoMaximoAeronave = entrada.nextInt();
 
-    System.out.print("Quantidade de passageiros: ");
-    int quantPassageiros = entrada.nextInt();
-
     int totalPesoPassageiros = 0;
+    boolean incluirNovoPassageiro = true;
     
-    for (int passageiroAtual = 1; passageiroAtual <= quantPassageiros; passageiroAtual++) {
-      System.out.printf("Peso do passageiro #%d: ", passageiroAtual);
-      int pesoPassageiroAtual = entrada.nextInt();
+    while (totalPesoPassageiros <= pesoMaximoAeronave && incluirNovoPassageiro) {
+      System.out.print("Peso do passageiro: ");
+      int pesoPassageiro = entrada.nextInt();
 
-      totalPesoPassageiros += pesoPassageiroAtual;
+      totalPesoPassageiros += pesoPassageiro;
+
+      if (totalPesoPassageiros <= pesoMaximoAeronave) { 
+        System.out.print("Deseja incluir um novo passageiro? ");
+        incluirNovoPassageiro = entrada.nextBoolean();
+      } else { 
+        incluirNovoPassageiro = false;
+      }
     }
 
     System.out.printf("Peso maximo da aeronave: %d%n", pesoMaximoAeronave);
