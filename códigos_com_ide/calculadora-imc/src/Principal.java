@@ -3,9 +3,13 @@ public class Principal {
         Paciente eduardo = new Paciente();
         eduardo.altura = 1.74;
         eduardo.peso = 73.9;
+        eduardo.idade = 19;
+        eduardo.nome = "Eduardo Braga";
 
-        indiceMassaCorporal imcEduardo = eduardo.caucularImcDoPaciente();
+        CalculadoraImc calculadoraImc = new CalculadoraImc();
 
-        System.out.printf("IMC: %.2f%n", imcEduardo.resultado);
+        indiceMassaCorporal imcEduardo = calculadoraImc.calcular(eduardo);
+
+        imcEduardo.situacaoPaciente();
     }
 }
