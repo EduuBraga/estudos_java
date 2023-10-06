@@ -9,7 +9,6 @@ public class Principal {
         CalculadoraImc calculadoraImc = new CalculadoraImc();
 
         indiceMassaCorporal imcEduardo = calculadoraImc.calcular(eduardo);
-
-        imcEduardo.situacaoPaciente();
+        calculadoraImc.situacaoPaciente(imcEduardo, eduardo);
     }
 }
