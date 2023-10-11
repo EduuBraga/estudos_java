@@ -6,13 +6,12 @@ public class Principal {
         arroz101.precoCusto = 100;
         arroz101.nome = "Arroz parbo T1 1KG frd C/30";
 
+        Produto.alterarCustoEmbalagem(10);
+        Produto.imprimirCustoEmbalagem();
+
         ServicoDePrecificacao servicoDePrecificacao = new ServicoDePrecificacao();
 
         servicoDePrecificacao.definirPrecoVendaProduto(arroz101, 10);
-        arroz101.imprimirCaracteristicasProduto();
-
-        arroz101.alterarPrecoCusto(151);
-        servicoDePrecificacao.definirPrecoVendaProduto(arroz101, 12);
         arroz101.imprimirCaracteristicasProduto();
     }
 }

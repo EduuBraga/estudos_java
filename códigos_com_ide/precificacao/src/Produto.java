@@ -1,8 +1,17 @@
 public class Produto {
     static double custoEmbalagem;
+
     String nome;
     double precoVenda;
     double precoCusto;
+
+    static void alterarCustoEmbalagem(double custoEmbalagem) {
+        Produto.custoEmbalagem = custoEmbalagem;
+    }
+
+    static void imprimirCustoEmbalagem() {
+        System.out.printf("Custo de embalagem: %.2f", custoEmbalagem);
+    }
 
     void imprimirCaracteristicasProduto() {
         System.out.println("nome:" + nome);
