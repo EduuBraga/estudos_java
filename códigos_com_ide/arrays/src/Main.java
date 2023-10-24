@@ -1,5 +1,3 @@
-import java.util.Arrays;
-
 public class Main {
     public static void main(String[] args) {
         Turma b = new Turma();
@@ -14,8 +12,15 @@ public class Main {
         aluno2.nome = "Alan faustino";
         aluno2.idade = 20;
 
+        Aluno aluno3 = new Aluno();
+        aluno3.nome = "Carlos Eduardo";
+        aluno3.idade = 20;
+
         b.adicionarAluno(aluno1);
         b.adicionarAluno(aluno2);
+        b.adicionarAluno(aluno3);
+
+        b.removerAluno(0);
 
         b.imprimirListaAlunos();
     }

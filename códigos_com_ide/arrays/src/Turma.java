@@ -1,20 +1,21 @@
-import java.util.Arrays;
+import java.util.ArrayList;
 
 public class Turma {
     String identificacao;
     String professora;
-    Aluno[] alunos = new Aluno[0];
+    ArrayList<Aluno> alunos = new ArrayList<>();
 
     void adicionarAluno(Aluno aluno) {
-        this.alunos = Arrays.copyOf(alunos, alunos.length + 1);
+        this.alunos.add(aluno);
+    }
 
-        int ultimoElementoDoArray = this.alunos.length - 1;
-        this.alunos[ultimoElementoDoArray] = aluno;
+    void removerAluno(int indice) {
+        this.alunos.remove(indice);
     }
 
     void imprimirListaAlunos() {
-        for (int i = 0; i < alunos.length; i++) {
-            Aluno aluno = alunos[i];
+        for (int i = 0; i < this.alunos.size(); i++) {
+            Aluno aluno = this.alunos.get(i);
 
             if(aluno != null) {
                 System.out.printf("%d - %s, %d anos%n", i, aluno.nome, aluno.idade);
