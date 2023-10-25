@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class Turma {
     String identificacao;
@@ -11,6 +12,18 @@ public class Turma {
 
     void removerAluno(int indice) {
         this.alunos.remove(indice);
+    }
+
+    ArrayList<Aluno> consultarAlunosPorIdade(int idadeMinima, int idadeMaxima) {
+        ArrayList<Aluno> alunosFiltrados = new ArrayList<>();
+
+        for (Aluno aluno : alunos) {
+            if(aluno.idade >= idadeMinima && aluno.idade <= idadeMaxima) {
+               alunosFiltrados.add(aluno);
+            }
+        }
+
+        return alunosFiltrados;
     }
 
     void imprimirListaAlunos() {
