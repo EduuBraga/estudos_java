@@ -36,8 +36,32 @@ public class MainTwo {
             System.out.println((i + 1) + " - " + gun);
         }
 
-//      for (String gun : gunsCODM) {
-//          System.out.println("gun = " + gun);
-//      }
+        //Arrays multidimensionais
+        String[][] estadosCidades = new String[2][3];
+
+        String[] cearaCidades = estadosCidades[0];
+        cearaCidades[0] = "Pentecoste";
+        cearaCidades[1] = "Fortaleza";
+        cearaCidades[2] = "Paraipaba";
+
+        String[] bahiaCidades = estadosCidades[1];
+        bahiaCidades[0] = "Salvador";
+        bahiaCidades[1] = "Porto Seguero";
+        bahiaCidades[2] = "Chapada Diamantina";
+
+        System.out.println("[" + Arrays.toString(bahiaCidades) + ", " + Arrays.toString(cearaCidades) + "]");
+
+        for (int i = 0; i < estadosCidades.length; i++) {
+            for (int j = 0; j < estadosCidades[i].length; j++) {
+                String cidade = estadosCidades[i][j];
+                System.out.println("cidade = " + cidade);
+            }
+        }
+
+        for (String[] estado : estadosCidades) {
+            for (String cidade : estado) {
+                System.out.println("cidade = " + cidade);
+            }
+        }
     }
 }
