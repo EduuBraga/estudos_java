@@ -1,5 +1,7 @@
 package com.github.EduuBraga.erp.estoque;
 
+import static com.github.EduuBraga.erp.logistica.Pricing.addPriceProduct;
+
 import java.util.Objects;
 import java.util.UUID;
 
@@ -20,20 +22,16 @@ public class Product {
     }
 
     public Product(String nome, double preco) {
-        validandoArgumentosConstrutores(nome, preco);
-
         quantidadeProdutosCadastrados++;
+
+        validandoNome(nome);
 
         this.id = UUID.randomUUID().toString();
         this.nome = nome;
-        this.preco = preco;
+        addPriceProduct(this, preco);
     }
 
-    private static void validandoArgumentosConstrutores(String nome, double preco){
+    private static void validandoNome(String nome) {
         Objects.requireNonNull(nome, "O produto deve ter um nome");
-
-        if(preco < 0){
-            throw new IllegalArgumentException("O preco não deve ser vazio");
-        }
     }
 }
