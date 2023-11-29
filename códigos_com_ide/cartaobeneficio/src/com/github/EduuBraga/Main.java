@@ -7,6 +7,7 @@ public class Main {
     public static void main(String[] args) {
         Card cartaoEdu = new Card("Carlos Eduardo");
         Establishment hpstreetwear = new Establishment("HP Streetwear");
+
         PixDepositService servicoDepositoPix = new PixDepositService();
         OnlinePaymentService servicoPagamentoOnline = new OnlinePaymentService();
 
@@ -16,7 +17,7 @@ public class Main {
         Receipt reciboPagamento = servicoPagamentoOnline.efetuarPagamento(hpstreetwear, cartaoEdu, 100);
         reciboPagamento.imprimirDescricaoTransacao();
 
-        System.out.printf("Titular: %s%n", cartaoEdu.titular);
-        System.out.printf("Saldo: %.2f%n", cartaoEdu.saldo);
+        System.out.printf("Titular: %s%n", cartaoEdu.getTitular());
+        System.out.printf("Saldo: %.2f%n", cartaoEdu.getSaldo());
     }
 }

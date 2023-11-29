@@ -6,14 +6,10 @@ import com.github.EduuBraga.Receipt;
 
 public class OnlinePaymentService {
     public Receipt efetuarPagamento(Establishment estabelecimento, Card cartao, double valor) {
-        if (cartao.saldo < valor) {
-            throw new RuntimeException("Saldo insuficiente");
-        }
-
-        cartao.saldo -= valor;
+        cartao.debitar(valor);
 
         // TODO realiza outras lógicas para pagar o estabelecimento.
 
-        return new Receipt(cartao.titular, valor);
+        return new Receipt(cartao.getTitular(), valor);
     }
 }
