@@ -63,9 +63,9 @@ public class Conta {
     }
 
     public void imprimirInformacoes() {
+        System.out.println("-----------------");
         System.out.println("titular: " + getTitular().getNome() + ", " + getNumero());
         System.out.println("agencia: " + agencia);
         System.out.println("saldo: " + saldo);
-        System.out.println("-----------------");
     }
 }

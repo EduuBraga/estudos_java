@@ -24,17 +24,17 @@ public class ContaEspecial extends Conta {
         return getSaldo() + limiteChequeEspecial;
     }
 
+    @Override
     protected void validarSaldoConta(double valorSaque) {
         if(getLimiteDisponivel() < valorSaque) {
             throw new IllegalArgumentException("Saldo insuficiênte");
         }
     }
 
+    @Override
     public void imprimirInformacoes() {
-        System.out.println("titular: " + getTitular().getNome() + ", " + getNumero());
-        System.out.println("agencia: " + getAgencia());
-        System.out.println("saldo: " + getSaldo());
+        super.imprimirInformacoes();
+
         System.out.println("Limite disponível: " + getLimiteDisponivel());
-        System.out.println("-----------------");
     }
 }
