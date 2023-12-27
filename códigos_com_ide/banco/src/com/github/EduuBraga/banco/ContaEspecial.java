@@ -4,12 +4,13 @@ public class ContaEspecial extends Conta {
     private double tarifaMensal;
     private double limiteChequeEspecial;
 
-    public double getTarifaMensal() {
-        return tarifaMensal;
+    public ContaEspecial (Titular titular, int agencia, int numero, double tarifaMensal) {
+        super(titular, agencia, numero);
+        this.tarifaMensal = tarifaMensal;
     }
 
-    public void setTarifaMensal(double tarifaMensal) {
-        this.tarifaMensal = tarifaMensal;
+    public double getTarifaMensal() {
+        return tarifaMensal;
     }
 
     public void setLimiteChequeEspecial(double limiteChequeEspecial) {

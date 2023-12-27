@@ -4,13 +4,8 @@ import com.github.EduuBraga.banco.Titular;
 
 public class Principal3 {
     public static void main(String[] args) {
-        Titular edu = new Titular("Eduardo", "06508779172");
-
-        ContaEspecial conta = new ContaEspecial();
-        conta.setAgencia(777);
-        conta.setNumero(777);
-        conta.setTitular(edu);
-        conta.setTarifaMensal(120);
+        Titular titular = new Titular("Eduardo", "06508779172");
+        ContaEspecial conta = new ContaEspecial(titular, 777, 888, 90);
         conta.setLimiteChequeEspecial(1000);
 
         conta.depositar(100);

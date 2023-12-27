@@ -1,6 +1,10 @@
 package com.github.EduuBraga.banco;
 
 public class ContaInvestimento extends Conta {
+    public ContaInvestimento (Titular titular, int agencia, int numero) {
+        super(titular, agencia, numero);
+    }
+
     private double valorTotalRendimentos;
 
     public double getValorTotalRendimentos() {
