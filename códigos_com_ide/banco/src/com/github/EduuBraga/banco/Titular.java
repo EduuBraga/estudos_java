@@ -18,11 +18,15 @@ public class Titular {
         return nome;
     }
 
-    public void setNome(String nome) {
-        this.nome = nome;
-    }
-
     public String getCpf() {
         return cpf;
+    }
+
+    @Override
+    public String toString() {
+        return "Titular[" +
+                "nome:'" + nome + '\'' +
+                ", cpf:'" + cpf + '\'' +
+                ']';
     }
 }

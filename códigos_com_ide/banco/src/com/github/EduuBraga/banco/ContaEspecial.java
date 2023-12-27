@@ -1,6 +1,6 @@
 package com.github.EduuBraga.banco;
 
-public class ContaEspecial extends Conta {
+public final class ContaEspecial extends Conta {
     private double tarifaMensal;
     private double limiteChequeEspecial;
 

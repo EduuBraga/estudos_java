@@ -27,7 +27,7 @@ public class Conta {
     }
 
 
-    public double getSaldo() {
+    public final double getSaldo() {
         return saldo;
     }
 
@@ -64,5 +64,15 @@ public class Conta {
         System.out.println("titular: " + titular.getNome() + ", " + numero);
         System.out.println("agencia: " + agencia);
         System.out.println("saldo: " + saldo);
+    }
+
+    @Override
+    public String toString() {
+        return "Conta[" +
+                "titular:" + titular +
+                ", agencia:" + agencia +
+                ", numero:" + numero +
+                ", saldo:" + saldo +
+                ']';
     }
 }
