@@ -38,8 +38,8 @@ public class Funcionario {
     @Override
     public String toString() {
         return "Funcionario{" +
-                "nome='" + nome + '\'' +
-                ", valorHora=" + valorHora +
+                "nome: '" + nome + '\'' +
+                ", valorHora: " + valorHora +
                 '}';
     }
 }
