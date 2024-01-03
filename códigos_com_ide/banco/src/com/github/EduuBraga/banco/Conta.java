@@ -1,12 +1,14 @@
 package com.github.EduuBraga.banco;
 
+import java.util.Objects;
+
 public class Conta {
     private Titular titular;
     private int agencia;
     private int numero;
     private double saldo;
 
-    public Conta (Titular titular, int agencia, int numero) {
+    public Conta(Titular titular, int agencia, int numero) {
         this.titular = titular;
         this.agencia = agencia;
         this.numero = numero;
@@ -74,5 +76,22 @@ public class Conta {
                 ", numero:" + numero +
                 ", saldo:" + saldo +
                 ']';
+    }
+
+    @Override
+    public boolean equals(Object obj) {
+        if (obj == this) return true;
+        if (obj == null) return false;
+
+        if (this.getClass() == obj.getClass()){
+            Conta conta = (Conta) obj;
+
+            boolean comparandoSeAgenciaNumeroCorrespondem = this.getAgencia() == conta.getAgencia()
+                    && this.getNumero() == conta.getNumero();
+
+            if(comparandoSeAgenciaNumeroCorrespondem) return true;
+        }
+
+        return false;
     }
 }
