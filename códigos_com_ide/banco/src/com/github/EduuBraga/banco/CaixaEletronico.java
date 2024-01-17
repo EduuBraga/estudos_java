@@ -20,14 +20,9 @@ public class CaixaEletronico {
     }
 
     public void imprimirInformacoes(Conta conta) {
-        if(conta instanceof ContaInvestimento) {
-            ContaInvestimento contaInvestimento = (ContaInvestimento) conta;
-
-            if (contaInvestimento.getValorTotalRendimentos() > 0) {
-                System.out.println("Tarifa de impressão é grátis para este tipo de conta");
-            } else {
-                debitarTarigaImpressaoInformacoes(conta);
-            }
+        if(conta instanceof ContaInvestimento ContaInvestimento
+                && ContaInvestimento.getValorTotalRendimentos() > 0) {
+            System.out.println("Tarifa de impressão é grátis para este tipo de conta");
         } else {
             debitarTarigaImpressaoInformacoes(conta);
         }
