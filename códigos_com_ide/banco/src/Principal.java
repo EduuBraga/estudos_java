@@ -4,20 +4,24 @@ public class Principal {
     public static void main(String[] args) {
         CaixaEletronico caixaEletronico = new CaixaEletronico();
 
-        ContaEspecial contaEspecial1 = new ContaEspecial(new Titular("Eduardo Braga", "07608608456"),
+        ContaEspecial conta1 = new ContaEspecial(new Titular("Eduardo Braga", "07608608456"),
                 7777,
                 12345,
                 90);
+        conta1.setLimiteChequeEspecial(1000);
 
-        ContaEspecial contaEspecial2 = new ContaEspecial(new Titular("Yasmim Ponciano", "98727866644"),
-                6666,
-                54321,
-                90);
+        ContaInvestimento conta2 = new ContaInvestimento(new Titular("Eduardo Braga", "07608608456"),
+                7777, 12345);
+        conta2.depositar(200);
 
-        contaEspecial1.depositar(300);
+        Conta conta3 = new Conta(new Titular("Eduardo Braga", "07608608456"),
+                7777, 12345);
+        conta3.depositar(200);
 
-        caixaEletronico.transferir(contaEspecial1, contaEspecial2, 50);
-        contaEspecial1.imprimirInformacoes();
-        contaEspecial2.imprimirInformacoes();
+        ContaSalario conta4 = new ContaSalario(new Titular("Eduardo Braga", "07608608456"),
+                7777, 12345, 18_000);
+        conta4.depositar(200);
+
+        caixaEletronico.imprimirInformacoes(conta4);
     }
 }
