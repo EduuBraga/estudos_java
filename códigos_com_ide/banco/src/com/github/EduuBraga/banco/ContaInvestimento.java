@@ -12,8 +12,13 @@ public class ContaInvestimento extends Conta {
     }
 
     public void creditarRendimentos(double percentualJuros) {
-        double valorRendimentos = getSaldo() * percentualJuros / 100;
-        this.valorTotalRendimentos += valorRendimentos;
-        depositar(valorRendimentos);
+        if(getSaldo() > 0) {
+            double valorRendimentos = getSaldo() * percentualJuros / 100;
+            this.valorTotalRendimentos += valorRendimentos;
+            depositar(valorRendimentos);
+        }else{
+            System.out.println("Não à saldo para finalizar rendimentos");
+        }
+
     }
 }
