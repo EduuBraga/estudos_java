@@ -43,6 +43,10 @@ public class Conta {
         }
     }
 
+    public boolean possuiPermissaoImprimirInfoCaixa() {
+        return false;
+    }
+
     public void sacar(double valorSaque) {
         if (valorSaque <= 0) {
             throw new IllegalArgumentException("Valor do saque deve ser maior que 0");
