@@ -1,6 +1,6 @@
 package com.github.eduubraga.fiscal;
 
-public class Invoice {
+public abstract class Invoice {
     private double totalValue;
     private String description;
 
