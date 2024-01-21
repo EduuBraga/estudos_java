@@ -17,9 +17,7 @@ public abstract class Invoice {
         return description;
     }
 
-    public double calcTaxes() {
-        return 0;
-    }
+    public abstract double calcTaxes();
 
     public void issue(){
         System.out.printf("Emitindo nota fiscal para: %s%n", getDescription());
