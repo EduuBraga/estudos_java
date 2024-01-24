@@ -7,7 +7,7 @@ public class ServiceAccountPay {
     public void pay(PayableDocument document) {
         Recipient recipient = document.getRecipient();
 
-        if (!recipient.itHasKeyPix()) {
+        if (recipient.notHaveKeyPix()) {
             throw new RuntimeException("Benéficiario não possui chave pix");
         }
 

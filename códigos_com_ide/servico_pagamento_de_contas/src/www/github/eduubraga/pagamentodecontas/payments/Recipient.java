@@ -35,11 +35,11 @@ public class Recipient {
         this.bankAccount = bankAccount;
     }
 
-    public boolean itHasKeyPix () {
-        return getKeyPix() != null && getKeyPix().isEmpty();
+    public boolean notHaveKeyPix() {
+        return getKeyPix() == null && getKeyPix().isEmpty();
     }
 
-    public boolean itHasBankAccount () {
-        return getBankAccount() != null && getBankAccount().isEmpty();
+    public boolean notHaveBankAccount() {
+        return getBankAccount() == null && getBankAccount().isEmpty();
     }
 }
