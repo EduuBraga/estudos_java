@@ -14,4 +14,8 @@ public class FinancingService {
         System.out.printf("DEBUG: Financiamento aprovado. Limite máximo %.2f%n",
                 approvedLimit);
     }
+
+    public double consultApprovedLimit(Company company) {
+        return company.calculateApprovedLimit();
+    }
 }

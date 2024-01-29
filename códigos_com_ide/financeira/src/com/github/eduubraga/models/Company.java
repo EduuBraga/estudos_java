@@ -25,9 +25,5 @@ public abstract class Company {
         this.totalRevenue = totalRevenue;
     }
 
-    public double calculateInterest(double requestedAmount){
-        return 0;
-    }
-
     public abstract double calculateApprovedLimit();
 }
