@@ -1,8 +1,8 @@
 package com.github.eduubraga.models.financeablecompanies;
 
-import com.github.eduubraga.models.financeablecompanies.FinanceableCompany;
+import com.github.eduubraga.models.Company;
 
-public class Industry extends FinanceableCompany {
+public class Industry extends Company implements BankableClient {
     public static final double CREDIT_LIMIT_BILLING_PERCENTAGE = 0.5; // 50%
     public static final double ADDITIONAL_RATE_LIMIT_SUSTAINABLE_INDUSTRY = 1.2; // Mais 20%
 
@@ -29,5 +29,10 @@ public class Industry extends FinanceableCompany {
             valueApproved *= ADDITIONAL_RATE_LIMIT_SUSTAINABLE_INDUSTRY;
 
         return valueApproved;
+    }
+
+    @Override
+    public String getName() {
+        return getSocialReason();
     }
 }

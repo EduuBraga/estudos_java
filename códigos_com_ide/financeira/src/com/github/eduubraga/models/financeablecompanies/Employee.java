@@ -1,11 +1,13 @@
 package com.github.eduubraga.models.financeablecompanies;
 
-public class Employee extends FinanceableCompany{
+public class Employee implements BankableClient {
     public static final int QUANTITY_SALARY_LIMIT_CREDIT = 4;
+
+    private String name;
     private double monthlySalary;
 
     public Employee(String name, double monthlySalary) {
-        super(name, 0);
+        this.name = name;
         this.monthlySalary = monthlySalary;
     }
 
@@ -15,6 +17,14 @@ public class Employee extends FinanceableCompany{
 
     public void setMonthlySalary(double monthlySalary) {
         this.monthlySalary = monthlySalary;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
