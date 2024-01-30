@@ -13,7 +13,8 @@ public class FinancingService {
                 socialReason, approvedLimit));
     }
 
-        System.out.printf("DEBUG: Financiamento aprovado. Limite máximo %.2f%n",
+        System.out.printf("DEBUG: Financiamento aprovado para %s. Limite máximo %.2f%n",
+                socialReason,
                 approvedLimit);
     }
 
