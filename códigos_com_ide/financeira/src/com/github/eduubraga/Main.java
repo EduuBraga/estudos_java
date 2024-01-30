@@ -1,13 +1,13 @@
 package com.github.eduubraga;
 
-import com.github.eduubraga.models.FinancialPartner;
-import com.github.eduubraga.models.financeablecompanies.Employee;
-import com.github.eduubraga.models.financeablecompanies.Farm;
-import com.github.eduubraga.models.financeablecompanies.Industry;
-import com.github.eduubraga.models.financeablecompanies.RetailStore;
+import com.github.eduubraga.models.bankablecustomers.Employee;
+import com.github.eduubraga.models.bankablecustomers.Farm;
+import com.github.eduubraga.models.bankablecustomers.Industry;
+import com.github.eduubraga.models.bankablecustomers.RetailStore;
 import com.github.eduubraga.services.FinancingService;
 
 public class Main {
+
     public static void main(String[] args) {
         FinancingService financingService = new FinancingService();
 
@@ -20,7 +20,6 @@ public class Main {
         financingService.requestFinancing(farm, 300_000);
         financingService.requestFinancing(retailStore, 100_000);
         financingService.requestFinancing(employee, 5_500);
-
-
     }
+
 }

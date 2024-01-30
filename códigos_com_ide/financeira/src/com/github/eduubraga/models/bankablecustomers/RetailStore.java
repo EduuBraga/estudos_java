@@ -1,8 +1,9 @@
-package com.github.eduubraga.models.financeablecompanies;
+package com.github.eduubraga.models.bankablecustomers;
 
 import com.github.eduubraga.models.Company;
 
 public class RetailStore extends Company implements BankableClient {
+
     private static final double CREDIT_LIMIT_BILLING_PERCENTAGE = 0.2; // 20%
     private static final double PERCENTAGE_VALUE_STOCK_CREDIT_LIMIT = 0.4; // 40%
 
@@ -31,4 +32,5 @@ public class RetailStore extends Company implements BankableClient {
     public String getName() {
         return getSocialReason();
     }
+
 }

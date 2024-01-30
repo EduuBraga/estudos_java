@@ -1,6 +1,7 @@
-package com.github.eduubraga.models.financeablecompanies;
+package com.github.eduubraga.models.bankablecustomers;
 
 public class Employee implements BankableClient {
+
     public static final int QUANTITY_SALARY_LIMIT_CREDIT = 4;
 
     private String name;
@@ -31,4 +32,5 @@ public class Employee implements BankableClient {
     public double calculateApprovedLimit() {
         return getMonthlySalary() * QUANTITY_SALARY_LIMIT_CREDIT;
     }
+
 }

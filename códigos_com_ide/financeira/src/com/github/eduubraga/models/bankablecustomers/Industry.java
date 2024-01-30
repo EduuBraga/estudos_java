@@ -1,8 +1,9 @@
-package com.github.eduubraga.models.financeablecompanies;
+package com.github.eduubraga.models.bankablecustomers;
 
 import com.github.eduubraga.models.Company;
 
 public class Industry extends Company implements BankableClient {
+
     public static final double CREDIT_LIMIT_BILLING_PERCENTAGE = 0.5; // 50%
     public static final double ADDITIONAL_RATE_LIMIT_SUSTAINABLE_INDUSTRY = 1.2; // Mais 20%
 
@@ -35,4 +36,5 @@ public class Industry extends Company implements BankableClient {
     public String getName() {
         return getSocialReason();
     }
+
 }
