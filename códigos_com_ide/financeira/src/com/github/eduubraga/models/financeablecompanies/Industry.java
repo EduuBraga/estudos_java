@@ -1,6 +1,8 @@
-package com.github.eduubraga.models;
+package com.github.eduubraga.models.financeablecompanies;
 
-public class Industry extends Company {
+import com.github.eduubraga.models.financeablecompanies.FinanceableCompany;
+
+public class Industry extends FinanceableCompany {
     public static final double CREDIT_LIMIT_BILLING_PERCENTAGE = 0.5; // 50%
     public static final double ADDITIONAL_RATE_LIMIT_SUSTAINABLE_INDUSTRY = 1.2; // Mais 20%
 

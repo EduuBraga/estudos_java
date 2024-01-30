@@ -1,21 +1,23 @@
 package com.github.eduubraga.services;
 
-import com.github.eduubraga.models.Company;
+import com.github.eduubraga.models.financeablecompanies.FinanceableCompany;
 
 public class FinancingService {
-    public void requestFinancing(Company company, double requestedAmount) {
+    public void requestFinancing(FinanceableCompany company, double requestedAmount) {
         double approvedLimit = company.calculateApprovedLimit();
+        String socialReason = company.getSocialReason();
 
         if (requestedAmount > approvedLimit) {
             throw new RuntimeException(String
-                    .format("DEBUG: Financiamento não aprovado. Limite máximo: %.2f%n", approvedLimit));
-        }
+                    .format("DEBUG: Financiamento não aprovado para %s. Limite máximo: %.2f%n",
+                socialReason, approvedLimit));
+    }
 
         System.out.printf("DEBUG: Financiamento aprovado. Limite máximo %.2f%n",
                 approvedLimit);
     }
 
-    public double consultApprovedLimit(Company company) {
+    public double consultApprovedLimit(FinanceableCompany company) {
         return company.calculateApprovedLimit();
     }
 }

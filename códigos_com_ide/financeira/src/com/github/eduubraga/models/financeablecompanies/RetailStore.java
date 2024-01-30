@@ -1,6 +1,8 @@
-package com.github.eduubraga.models;
+package com.github.eduubraga.models.financeablecompanies;
 
-public class RetailStore extends Company{
+import com.github.eduubraga.models.financeablecompanies.FinanceableCompany;
+
+public class RetailStore extends FinanceableCompany {
     private static final double CREDIT_LIMIT_BILLING_PERCENTAGE = 0.2; // 20%
     private static final double PERCENTAGE_VALUE_STOCK_CREDIT_LIMIT = 0.4; // 40%
 

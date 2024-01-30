@@ -1,6 +1,8 @@
-package com.github.eduubraga.models;
+package com.github.eduubraga.models.financeablecompanies;
 
-public class Farm extends Company{
+import com.github.eduubraga.models.financeablecompanies.FinanceableCompany;
+
+public class Farm extends FinanceableCompany {
     public static final double CREDIT_LIMIT_BILLING_PERCENTAGE = 0.5; // 50%
     public static final double MINIMUM_SIZE_IN_HECTARES_LARGE_PROPERTY = 5;
     public static final double FEE_ADDITION_LIMIT_FOR_LARGE_PROPERTY = 1.20; // mais 20%

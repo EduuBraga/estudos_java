@@ -24,6 +24,4 @@ public abstract class Company {
     public void setTotalRevenue(double totalRevenue) {
         this.totalRevenue = totalRevenue;
     }
-
-    public abstract double calculateApprovedLimit();
 }

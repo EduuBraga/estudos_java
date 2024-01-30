@@ -1,7 +1,7 @@
 package com.github.eduubraga;
 
-import com.github.eduubraga.models.Company;
-import com.github.eduubraga.models.Industry;
+import com.github.eduubraga.models.FinancialPartner;
+import com.github.eduubraga.models.financeablecompanies.Industry;
 import com.github.eduubraga.services.FinancingService;
 
 public class Main {
@@ -15,5 +15,7 @@ public class Main {
         industry.setComprensatesCo2Emissions(true);
 
         financingService.requestFinancing(industry, 30_000);
+
+        FinancialPartner financialPartner = new FinancialPartner("hp streetwear", 10_000);
     }
 }
