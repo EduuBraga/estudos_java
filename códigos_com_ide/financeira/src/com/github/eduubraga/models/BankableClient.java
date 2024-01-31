@@ -2,18 +2,22 @@ package com.github.eduubraga.models;
 
 public interface BankableClient {
 
+    double LOW_RISK_INTEREST = 1.0;
+    double AVERAGE_RISK_INTEREST = 1.5;
+    double BIG_RISK_INTEREST = 2.0;
+
     double calculateApprovedLimit();
 
     String getName();
 
     default double calculateInterest(double requestedAmount) {
         if (isSmallAmountFinancing(requestedAmount)) {
-            return 1.0;
+            return LOW_RISK_INTEREST;
         } else if (isMediumAmountFinancing(requestedAmount)) {
-            return 1.5;
+            return AVERAGE_RISK_INTEREST;
         }
 
-        return 2.0; // big amount financing
+        return BIG_RISK_INTEREST; // big amount financing
     }
 
     private static boolean isMediumAmountFinancing(double requestedAmount) {
