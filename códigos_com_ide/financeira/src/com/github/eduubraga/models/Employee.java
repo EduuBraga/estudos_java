@@ -1,9 +1,6 @@
 package com.github.eduubraga.models;
 
-public class Employee implements BankableClient {
-
-    public static final int QUANTITY_SALARY_LIMIT_CREDIT = 4;
-
+public abstract class Employee implements BankableClient, BonifiableEntity {
     private String name;
     private double monthlySalary;
 
@@ -27,10 +24,4 @@ public class Employee implements BankableClient {
     public void setName(String name) {
         this.name = name;
     }
-
-    @Override
-    public double calculateApprovedLimit() {
-        return getMonthlySalary() * QUANTITY_SALARY_LIMIT_CREDIT;
-    }
-
 }
