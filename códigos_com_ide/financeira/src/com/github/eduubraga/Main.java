@@ -14,12 +14,10 @@ public class Main {
         Industry industry = new Industry("C Eduardo P B", 100_000, false);
         Farm farm = new Farm("Fazenda belem", 700_000, 5);
         RetailStore retailStore = new RetailStore("HP streetwear", 300_000, 100_000);
-        Employee employee = new Employee("Eduardo", 2_000);
 
         financingService.requestFinancing(industry, 30_000);
         financingService.requestFinancing(farm, 300_000);
         financingService.requestFinancing(retailStore, 100_000);
-        financingService.requestFinancing(employee, 5_500);
     }
 
 }
