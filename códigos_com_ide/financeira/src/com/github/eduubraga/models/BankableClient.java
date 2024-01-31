@@ -1,4 +1,4 @@
-package com.github.eduubraga.models.bankablecustomers;
+package com.github.eduubraga.models;
 
 public interface BankableClient {
 

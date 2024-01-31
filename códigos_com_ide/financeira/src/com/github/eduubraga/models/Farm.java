@@ -1,8 +1,6 @@
-package com.github.eduubraga.models.bankablecustomers;
+package com.github.eduubraga.models;
 
-import com.github.eduubraga.models.Company;
-
-public class Farm extends Company implements BankableClient {
+public class Farm extends FinanceableCompany {
 
     public static final double CREDIT_LIMIT_BILLING_PERCENTAGE = 0.5; // 50%
     public static final double MINIMUM_SIZE_IN_HECTARES_LARGE_PROPERTY = 5;

@@ -1,9 +1,9 @@
 package com.github.eduubraga;
 
-import com.github.eduubraga.models.bankablecustomers.Employee;
-import com.github.eduubraga.models.bankablecustomers.Farm;
-import com.github.eduubraga.models.bankablecustomers.Industry;
-import com.github.eduubraga.models.bankablecustomers.RetailStore;
+import com.github.eduubraga.models.Employee;
+import com.github.eduubraga.models.Farm;
+import com.github.eduubraga.models.Industry;
+import com.github.eduubraga.models.RetailStore;
 import com.github.eduubraga.services.FinancingService;
 
 public class Main {

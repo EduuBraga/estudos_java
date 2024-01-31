@@ -1,6 +1,6 @@
 package com.github.eduubraga.models;
 
-public class FinancialPartner extends Company{
+public class FinancialPartner extends Company {
     private double totalAmountApplied;
 
     public FinancialPartner(String socialReason, double totalRevenue) {
