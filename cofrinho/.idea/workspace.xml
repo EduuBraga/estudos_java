@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="194ead79-1ddc-44dd-a817-6fb048414cf0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../códigos_com_ide/modulo_4/Projeto1/.editorconfig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../códigos_com_ide/modulo_4/Projeto1/src/CartelaLoteria.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -13,9 +12,12 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="GitToolBoxStore">
+    <option name="projectConfigVersion" value="5" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2VjM6cwReeX5mSHNTRMKjIEhhe8" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -27,7 +29,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "git-widget-placeholder": "main",
-    "last_opened_file_path": "C:/Users/choco/www/repositories/REPO-estudos_java/cofrinho/src/Cofrinho",
+    "last_opened_file_path": "C:/Users/choco/www/repositories/REPO-estudos_java/cofrinho",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
