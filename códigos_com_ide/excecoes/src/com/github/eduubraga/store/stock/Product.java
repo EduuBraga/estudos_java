@@ -1,5 +1,8 @@
 package com.github.eduubraga.store.stock;
 
+import com.github.eduubraga.store.stock.exceptions.InactiveProductException;
+import com.github.eduubraga.store.stock.exceptions.ProductOutStockException;
+
 import java.util.Objects;
 
 public class Product {
@@ -46,11 +49,11 @@ public class Product {
         }
 
         if (isInactive()) {
-            throw new IllegalStateException("Produto inativo, movimentação indisponível.");
+            throw new InactiveProductException("Produto inativo, movimentação indisponível.");
         }
 
         if(this.quantityInStock - quantity < 0){
-            throw new IllegalArgumentException("Quantidade a remover maio¹¹r que quantidade em estoque");
+            throw new ProductOutStockException("Quantidade a remover maio¹¹r que quantidade em estoque");
         }
 
         this.quantityInStock -= quantity;

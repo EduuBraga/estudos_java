@@ -1,6 +1,8 @@
 package com.github.eduubraga;
 
 import com.github.eduubraga.store.stock.Product;
+import com.github.eduubraga.store.stock.exceptions.InactiveProductException;
+import com.github.eduubraga.store.stock.exceptions.ProductOutStockException;
 
 import java.util.Scanner;
 
@@ -9,7 +11,6 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         Product product = new Product("mouse X pro");
-        product.setActive(true);
         product.addStock(10);
 
         while (true) {
@@ -25,17 +26,33 @@ public class Main {
                 System.out.println("Retira efetuada com sucesso!");
                 break;
             } catch (IllegalArgumentException iae) {
-                System.out.println("Erro ao tentar movimentar o produto: " + iae.getMessage());
+                System.out.println("Erro ao tentar dar baixa: " + iae.getMessage());
+            } catch (InactiveProductException e){
+                System.out.println("Erro ao tentar dar baixa: " + e.getMessage());
 
-                System.out.print("Deseja retirar novamente? ");
+                System.out.print("Deseja ativar o produto? ");
+                if (scanner.nextBoolean()){
+                    product.setActive(true);
+                    System.out.println("Produto ativado com sucesso!");
+                } else {
+                    System.out.println("Ok. Produto inativo");
+                    break;
+                }
+            }
+            catch (ProductOutStockException e) {
+                System.out.println("Erro ao tentar dar baixa: " + e.getMessage());
+
+                System.out.print("Deseja tentar retirar novamente? ");
                 if (scanner.nextBoolean()) {
                     System.out.print("Quantidade: ");
                     int response = scanner.nextInt();
 
                     try {
                         product.removeStock(response);
-                    } catch (IllegalArgumentException iae2) {
-                        System.out.println("Invalido: " + iae2.getMessage());
+                        System.out.println("Retira efetuada com sucesso!");
+                        break;
+                    } catch (ProductOutStockException e2) {
+                        System.out.println("Invalido: " + e2.getMessage());
                     }
                 } else {
                     System.out.println("Ok");
