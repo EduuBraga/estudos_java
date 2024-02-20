@@ -48,7 +48,7 @@ public class Main {
                         product.removeStock(quantityToRemove);
                         System.out.println("Retira efetuada com sucesso!");
                         break;
-                    } catch (ProductOutStockException e2) {
+                    } catch (ProductOutStockException | InactiveProductException e2) {
                         System.out.println("Invalido: " + e2.getMessage());
                     }
                 } else {
