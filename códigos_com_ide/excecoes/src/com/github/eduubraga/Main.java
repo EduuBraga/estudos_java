@@ -16,39 +16,36 @@ public class Main {
         while (true) {
             try {
                 System.out.printf("%s tem %d em estoque, quantos deseja retirar? ",
-                        product.getName(),
-                        product.getQuantityInStock());
+                        product.getName(), product.getQuantityInStock());
+                int quantityToRemove = scanner.nextInt();
 
-                int response = scanner.nextInt();
-
-                product.removeStock(response);
+                product.removeStock(quantityToRemove);
 
                 System.out.println("Retira efetuada com sucesso!");
                 break;
             } catch (IllegalArgumentException iae) {
-                System.out.println("Erro ao tentar dar baixa: " + iae.getMessage());
-            } catch (InactiveProductException e){
-                System.out.println("Erro ao tentar dar baixa: " + e.getMessage());
+                System.out.println("Erro na compra: " + iae.getMessage());
+            } catch (InactiveProductException e) {
+                System.out.println("Erro na compra: " + e.getMessage());
 
                 System.out.print("Deseja ativar o produto? ");
-                if (scanner.nextBoolean()){
+                if (scanner.nextBoolean()) {
                     product.setActive(true);
                     System.out.println("Produto ativado com sucesso!");
                 } else {
-                    System.out.println("Ok. Produto inativo");
+                    System.out.println("Ok. Produto continua inativo.");
                     break;
                 }
-            }
-            catch (ProductOutStockException e) {
-                System.out.println("Erro ao tentar dar baixa: " + e.getMessage());
+            } catch (ProductOutStockException e) {
+                System.out.println("Erro na compra: " + e.getMessage());
 
                 System.out.print("Deseja tentar retirar novamente? ");
                 if (scanner.nextBoolean()) {
                     System.out.print("Quantidade: ");
-                    int response = scanner.nextInt();
+                    int quantityToRemove = scanner.nextInt();
 
                     try {
-                        product.removeStock(response);
+                        product.removeStock(quantityToRemove);
                         System.out.println("Retira efetuada com sucesso!");
                         break;
                     } catch (ProductOutStockException e2) {
@@ -57,10 +54,10 @@ public class Main {
                 } else {
                     System.out.println("Ok");
                 }
-
             }
         }
 
         System.out.printf("Quantidade de %s em estoque: %d", product.getName(), product.getQuantityInStock());
+
     }
 }

@@ -45,15 +45,15 @@ public class Product {
 
     public void removeStock(int quantity) {
         if (quantity < 0) {
-            throw new IllegalArgumentException("A quantidade de produto à remover não pode ser negativa");
+            throw new IllegalArgumentException("Quantidade à remover nagativa");
         }
 
         if (isInactive()) {
-            throw new InactiveProductException("Produto inativo, movimentação indisponível.");
+            throw new InactiveProductException("Produto inativo");
         }
 
         if(this.quantityInStock - quantity < 0){
-            throw new ProductOutStockException("Quantidade a remover maio¹¹r que quantidade em estoque");
+            throw new ProductOutStockException("Estoque insuficiente");
         }
 
         this.quantityInStock -= quantity;
