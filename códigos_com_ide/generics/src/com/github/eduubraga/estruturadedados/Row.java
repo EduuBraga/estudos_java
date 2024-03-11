@@ -2,10 +2,10 @@ package com.github.eduubraga.estruturadedados;
 
 import java.util.Arrays;
 
-public class Stack<T> implements MyCollection<T> {
+public class Row<T> implements MyCollection<T> {
     private T[] itens;
 
-    public Stack() {
+    public Row() {
         itens = (T[]) new Object[0];
     }
 
@@ -16,11 +16,13 @@ public class Stack<T> implements MyCollection<T> {
 
     public T toRemove() {
         if (itens.length == 0) {
-            throw new EmptyStackException("Pilha está vazia.");
+            throw new EmptyStackException("Fila sem itens.");
         }
 
-        T itemRemoved = itens[itens.length - 1];
-        itens = Arrays.copyOf(itens, itens.length - 1);
+        T itemRemoved = itens[0];
+        T[] newItens = (T[]) new Object[itens.length - 1];
+        System.arraycopy(itens, 1, newItens, 0, newItens.length);
+        itens = newItens;
 
         return itemRemoved;
     }
