@@ -18,4 +18,28 @@ public class HotelRegistration {
     public ArrayList<Hotel> getAll(){
         return hotels;
     }
+
+    public void removeByCity(String city) {
+        ArrayList<Hotel> hotelsRemoved = new ArrayList<>();
+
+        for (Hotel hotel : hotels) {
+            if (hotel.getCity().equals(city)) {
+                hotelsRemoved.add(hotel);
+            }
+        }
+
+        hotels.removeAll(hotelsRemoved);
+    }
+
+    public void remove(Hotel hotel) {
+        boolean removed = hotels.remove(hotel);
+
+        if (!removed) {
+            throw new HotelNotFoundException("Hotel não encontrado para remoção");
+        }
+    }
+
+    public void removeAll() {
+        hotels.clear();
+    }
 }
