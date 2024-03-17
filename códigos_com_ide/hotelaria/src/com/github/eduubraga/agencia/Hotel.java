@@ -48,4 +48,17 @@ public class Hotel {
         return String.format("Hotel(name:\"%s\", city:\"%s\", dailyPrice:%.2f)",
                 getName(), getCity(), getDailyPrice());
     }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Hotel hotel = (Hotel) o;
+        return Objects.equals(name, hotel.name) && Objects.equals(city, hotel.city);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(name, city);
+    }
 }
