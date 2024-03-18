@@ -1,6 +1,7 @@
 package com.github.eduubraga.agencia;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class HotelRegistration {
     private final ArrayList<Hotel> hotels = new ArrayList<>();
@@ -15,20 +16,20 @@ public class HotelRegistration {
         hotels.add(hotel);
     }
 
-    public ArrayList<Hotel> getAll(){
+    public ArrayList<Hotel> getAll() {
         return hotels;
     }
 
     public void removeByCity(String city) {
-        ArrayList<Hotel> hotelsRemoved = new ArrayList<>();
+        Iterator<Hotel> hotelIterator = hotels.iterator();
 
-        for (Hotel hotel : hotels) {
+        while (hotelIterator.hasNext()) {
+            Hotel hotel = hotelIterator.next();
+
             if (hotel.getCity().equals(city)) {
-                hotelsRemoved.add(hotel);
+                hotelIterator.remove();
             }
         }
-
-        hotels.removeAll(hotelsRemoved);
     }
 
     public void remove(Hotel hotel) {

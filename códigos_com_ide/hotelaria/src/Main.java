@@ -2,6 +2,7 @@ import com.github.eduubraga.agencia.Hotel;
 import com.github.eduubraga.agencia.HotelRegistration;
 
 import java.util.ArrayList;
+import java.util.Iterator;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,22 +13,19 @@ public class Main {
         hotelRegistration.addHotel("Vila mãe rainha", "Pentecoste/CE", 350);
         hotelRegistration.addHotel("Casa lunar", "fortaleza/ce", 900);
 
-//        hotelRegistration.addHotel("Vila mãe rainha", "Pentecoste/CE", 350);
-
         ArrayList<Hotel> hotels = hotelRegistration.getAll();
-//        printHotels(hotels);
 
-        hotelRegistration.remove(new Hotel("Vila mãe rainha", "Pentecoste/CE", 350));
-        printHotels(hotels);
-
-        hotelRegistration.removeAll();
+        hotelRegistration.removeByCity("Pentecoste/CE");
         printHotels(hotels);
     }
 
     public static void printHotels(ArrayList<Hotel> hotels) {
+        Iterator<Hotel> hotelIterator = hotels.iterator();
         int i = 1;
 
-        for (Hotel hotel : hotels) {
+        while (hotelIterator.hasNext()) {
+            Hotel hotel = hotelIterator.next();
+
             System.out.printf("%d. %s (%s) -> %.2f%n"
                     , i, hotel.getName(), hotel.getCity(), hotel.getDailyPrice());
             i++;
