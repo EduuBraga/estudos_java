@@ -9,13 +9,13 @@ public class Main {
         HotelRegistration hotelRegistration = new HotelRegistration();
 
         hotelRegistration.addHotel("Hotel miami", "miami", 4_000);
-        hotelRegistration.addHotel("palace", "Pentecoste/CE", 500);
+        hotelRegistration.addHotel("Palace", "Pentecoste/CE", 500);
         hotelRegistration.addHotel("Vila mãe rainha", "Pentecoste/CE", 350);
         hotelRegistration.addHotel("Casa lunar", "fortaleza/ce", 900);
 
         ArrayList<Hotel> hotels = hotelRegistration.getAll();
 
-        hotelRegistration.removeByCity("Pentecoste/CE");
+        hotelRegistration.sortHotels();
         printHotels(hotels);
     }
 

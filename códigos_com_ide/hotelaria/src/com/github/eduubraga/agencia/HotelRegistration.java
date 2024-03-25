@@ -1,6 +1,7 @@
 package com.github.eduubraga.agencia;
 
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Iterator;
 
 public class HotelRegistration {
@@ -18,6 +19,10 @@ public class HotelRegistration {
 
     public ArrayList<Hotel> getAll() {
         return hotels;
+    }
+
+    public void sortHotels() {
+        hotels.sort(Comparator.naturalOrder());
     }
 
     public void removeByCity(String city) {

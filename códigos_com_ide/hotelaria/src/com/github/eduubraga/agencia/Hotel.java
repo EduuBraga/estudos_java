@@ -2,7 +2,7 @@ package com.github.eduubraga.agencia;
 
 import java.util.Objects;
 
-public class Hotel {
+public class Hotel implements Comparable<Hotel> {
     private String name;
     private String city;
     private double dailyPrice;
@@ -54,11 +54,16 @@ public class Hotel {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Hotel hotel = (Hotel) o;
-        return Objects.equals(name, hotel.name) && Objects.equals(city, hotel.city);
+        return Objects.equals(name, hotel.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, city);
+        return Objects.hash(name);
+    }
+
+    @Override
+    public int compareTo(Hotel o) {
+        return name.compareTo(o.getName());
     }
 }
