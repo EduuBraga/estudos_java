@@ -44,6 +44,11 @@ public class Hotel implements Comparable<Hotel> {
     }
 
     @Override
+    public int compareTo(Hotel o) {
+        return name.compareTo(o.getName());
+    }
+
+    @Override
     public String toString() {
         return String.format("Hotel(name:\"%s\", city:\"%s\", dailyPrice:%.2f)",
                 getName(), getCity(), getDailyPrice());
@@ -54,16 +59,11 @@ public class Hotel implements Comparable<Hotel> {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Hotel hotel = (Hotel) o;
-        return Objects.equals(name, hotel.name);
+        return Objects.equals(name, hotel.name) && Objects.equals(city, hotel.city);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name);
-    }
-
-    @Override
-    public int compareTo(Hotel o) {
-        return name.compareTo(o.getName());
+        return Objects.hash(name, city);
     }
 }

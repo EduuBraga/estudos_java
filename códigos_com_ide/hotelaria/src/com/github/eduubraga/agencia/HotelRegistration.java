@@ -1,5 +1,7 @@
 package com.github.eduubraga.agencia;
 
+import com.github.eduubraga.agencia.comparators.PriceHotelComparator;
+
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -21,8 +23,18 @@ public class HotelRegistration {
         return hotels;
     }
 
-    public void sortHotels() {
+    public void sort() {
         hotels.sort(Comparator.naturalOrder());
+    }
+
+    public void sortByPrice() {
+        hotels.sort(new PriceHotelComparator()
+                .thenComparing(Comparator.naturalOrder()));
+    }
+
+    public void sortByPriceReversed() {
+        hotels.sort(new PriceHotelComparator().reversed()
+                .thenComparing(Comparator.naturalOrder()));
     }
 
     public void removeByCity(String city) {
