@@ -2,7 +2,7 @@ package com.github.eduubraga;
 
 import java.util.Objects;
 
-public class Contact {
+public class Contact implements Comparable<Contact> {
     private String name;
     private String email;
     private int age;
@@ -59,5 +59,10 @@ public class Contact {
     @Override
     public int hashCode() {
         return Objects.hash(email);
+    }
+
+    @Override
+    public int compareTo(Contact obj) {
+        return this.getEmail().compareTo(obj.getEmail());
     }
 }
