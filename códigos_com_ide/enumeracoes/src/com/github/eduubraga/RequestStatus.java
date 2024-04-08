@@ -1,13 +1,13 @@
 package com.github.eduubraga;
 
 public enum RequestStatus {
-    SKETCH(),
+    SKETCH,
     ISSUED(12),
     INVOICED(10),
-    DISPATCHED(8),
-    SEPARATE(6),
-    DELIVERED(),
-    CANCELED();
+    SEPARATE(8),
+    DISPATCHED(6),
+    DELIVERED,
+    CANCELED;
 
     private int deliveryTimeInHours;
 
@@ -20,5 +20,10 @@ public enum RequestStatus {
 
     public int getDeliveryTimeInHours() {
         return deliveryTimeInHours;
+    }
+
+    public boolean canChangeToCanceled(double requestValue) {
+        return this.equals(RequestStatus.SKETCH)
+                || (this.equals(RequestStatus.ISSUED) && requestValue < 100);
     }
 }
