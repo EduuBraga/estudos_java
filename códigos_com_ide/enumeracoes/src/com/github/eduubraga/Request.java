@@ -32,4 +32,8 @@ public class Request {
     public void setOrigin(OriginRequest origin) {
         this.origin = origin;
     }
+
+    public int getDeliveryTimeInHours() {
+        return status.getDeliveryTimeInHours();
+    }
 }
