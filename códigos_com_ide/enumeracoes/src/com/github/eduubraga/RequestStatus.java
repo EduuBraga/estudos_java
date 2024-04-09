@@ -1,13 +1,48 @@
 package com.github.eduubraga;
 
 public enum RequestStatus {
-    SKETCH,
-    ISSUED(12),
-    INVOICED(10),
-    SEPARATE(8),
-    DISPATCHED(6),
-    DELIVERED,
-    CANCELED;
+    SKETCH {
+        @Override
+        public boolean canChangeToCanceled(double requestValue) {
+            return true;
+        }
+    },
+    ISSUED(12) {
+        @Override
+        public boolean canChangeToCanceled(double requestValue) {
+            return requestValue < 100;
+        }
+    },
+    INVOICED(10) {
+        @Override
+        public boolean canChangeToCanceled(double requestValue) {
+            return false;
+        }
+    },
+    SEPARATE(8) {
+        @Override
+        public boolean canChangeToCanceled(double requestValue) {
+            return false;
+        }
+    },
+    DISPATCHED(6) {
+        @Override
+        public boolean canChangeToCanceled(double requestValue) {
+            return false;
+        }
+    },
+    DELIVERED {
+        @Override
+        public boolean canChangeToCanceled(double requestValue) {
+            return false;
+        }
+    },
+    CANCELED {
+        @Override
+        public boolean canChangeToCanceled(double requestValue) {
+            return false;
+        }
+    };
 
     private int deliveryTimeInHours;
 
@@ -22,8 +57,5 @@ public enum RequestStatus {
         return deliveryTimeInHours;
     }
 
-    public boolean canChangeToCanceled(double requestValue) {
-        return this.equals(RequestStatus.SKETCH)
-                || (this.equals(RequestStatus.ISSUED) && requestValue < 100);
-    }
+    public abstract boolean canChangeToCanceled(double requestValue);
 }

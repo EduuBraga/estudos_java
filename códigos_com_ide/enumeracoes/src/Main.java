@@ -5,8 +5,8 @@ public class Main {
     public static void main(String[] args) {
         Request request = new Request("eduu", 90);
 
-        request.invoice();
-//        request.cancel();/
+        request.issue();
+        request.cancel();
 
         System.out.println(request.getStatus());
         System.out.println(request.getDeliveryTimeInHours());

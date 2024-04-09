@@ -61,8 +61,7 @@ public class Request {
     }
 
     public void cancel() {
-        if (getStatus().equals(RequestStatus.SKETCH) ||
-                (getStatus().equals(RequestStatus.ISSUED) && getTotalValue() < 100)) {
+        if (status.canChangeToCanceled(getTotalValue())) {
             status = RequestStatus.CANCELED;
         } else {
             throw new IllegalStateException("Pedido não pode ser cancelado");
