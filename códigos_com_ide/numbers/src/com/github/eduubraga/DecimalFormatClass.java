@@ -19,9 +19,21 @@ public class DecimalFormatClass {
         DecimalFormatSymbols symbols = new DecimalFormatSymbols(new Locale("pt", "BR"));
         NumberFormat formatter = new DecimalFormat("¤ #,##0.00;¤ #,##0.00", symbols);
 
-        System.out.println(formatter.format(a));
-        System.out.println(formatter.format(b));
-        System.out.println(formatter.format(c));
-        System.out.println(formatter.format(d));
+//        System.out.println(formatter.format(a));
+//        System.out.println(formatter.format(b));
+//        System.out.println(formatter.format(c));
+//        System.out.println(formatter.format(d));
+
+        // Números compactos
+        BigDecimal x = new BigDecimal("2231.25");
+        BigDecimal y = new BigDecimal("2231231.25");
+        BigDecimal z = new BigDecimal("4321231231.25");
+
+        NumberFormat formatter2 = NumberFormat
+                .getCompactNumberInstance(Locale.US, NumberFormat.Style.LONG);
+
+        System.out.println(formatter2.format(x));
+        System.out.println(formatter2.format(y));
+        System.out.println(formatter2.format(z));
     }
 }
