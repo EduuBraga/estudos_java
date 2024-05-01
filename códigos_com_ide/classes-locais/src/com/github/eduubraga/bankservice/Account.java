@@ -17,7 +17,7 @@ public class Account {
         BigDecimal tax = value.multiply(new BigDecimal("0.03"));
         balance = balance.subtract(value).subtract(tax);
 
-        class Payment implements Transaction{
+        return new Transaction(){
             @Override
             public BigDecimal getValueTotal() {
                 return value.add(tax);
@@ -27,26 +27,23 @@ public class Account {
             public void reimbursement() {
                 balance = balance.add(value).add(tax);
             }
-        }
-
-        return new Payment();
+        };
     }
 
     public Transaction chargeAFee(BigDecimal valueTax) {
         balance = balance.subtract(valueTax);
 
-        class Tax implements Transaction{
+        return new Transaction(){
             @Override
             public BigDecimal getValueTotal() {
                 return valueTax;
+
             }
 
             @Override
             public void reimbursement() {
                 balance = balance.add(valueTax);
             }
-        }
-
-        return new Tax();
+        };
     }
 }
