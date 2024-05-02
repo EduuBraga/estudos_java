@@ -2,6 +2,7 @@ package com.github.eduubraga.crm;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.function.Predicate;
 
 public class CustomerRegistration {
     private final ArrayList<Client> clients = new ArrayList<>();
@@ -14,11 +15,11 @@ public class CustomerRegistration {
         clients.add(client);
     }
 
-    public List<Client> consult(Filter<Client> filter) {
+    public List<Client> consult(Predicate<Client> filter) {
         ArrayList<Client> listFiltered = new ArrayList<>();
 
         for (Client client : clients) {
-            if (filter.toAssess(client)) {
+            if (filter.test(client)) {
                 listFiltered.add(client);
             }
         }
