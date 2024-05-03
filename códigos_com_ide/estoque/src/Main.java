@@ -3,6 +3,7 @@ import com.github.eduubraga.stock.Product;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.function.Consumer;
 import java.util.function.Predicate;
 
 public class Main {
@@ -17,23 +18,12 @@ public class Main {
         products.add(new Product("Macarrão bonsabor 400G", new BigDecimal("2.45"), 14));
 
 
-        // Maneira sem expressão lambda
-//        Iterator<Product> productIterator = products.iterator();
-//        while(productIterator.hasNext()) {
-//            Product productCurrent = productIterator.next();
-//
-//            if (productCurrent.getQuantity() < 1 || productCurrent.getStatus().equals(Product.Status.INACTIVE)) {
-//                productIterator.remove();
-//            }
+        Consumer<Product> consumerClearStock = product -> product.setQuantity(0);
+        Consumer<Product> consumerPrintProduct = product -> System.out.println(product);
+        products.forEach(consumerClearStock.andThen(consumerPrintProduct));
+
+//        for (Product product : products) {
+//            System.out.println(product);
 //        }
-
-        Predicate<Product> predicateOutOfStock = product -> product.getQuantity() < 1;
-        Predicate<Product> predicateInactiveProducts = product -> product.getStatus().equals(Product.Status.INACTIVE);
-
-        products.removeIf(predicateOutOfStock.or(predicateInactiveProducts));
-
-        for (Product product : products) {
-            System.out.println(product);
-        }
     }
 }
