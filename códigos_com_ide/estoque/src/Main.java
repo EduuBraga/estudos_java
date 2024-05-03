@@ -2,9 +2,10 @@ import com.github.eduubraga.stock.Product;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.function.Consumer;
-import java.util.function.Predicate;
+import java.util.Comparator;
+import java.util.function.DoubleFunction;
+import java.util.function.Function;
+import java.util.function.ToIntFunction;
 
 public class Main {
     public static void main(String[] args) {
@@ -17,13 +18,16 @@ public class Main {
         products.add(new Product("Arroz 101 T.1 1KG", new BigDecimal("5.29"), 0));
         products.add(new Product("Macarrão bonsabor 400G", new BigDecimal("2.45"), 14));
 
+        // Function
+        //products.sort((product1, product2) -> Integer.compare(product1.getQuantity(), product2.getQuantity()));
 
-        Consumer<Product> consumerClearStock = product -> product.setQuantity(0);
-        Consumer<Product> consumerPrintProduct = product -> System.out.println(product);
-        products.forEach(consumerClearStock.andThen(consumerPrintProduct));
+        // products.sort(Comparator.comparing(product -> product.getQuantity()));
 
-//        for (Product product : products) {
-//            System.out.println(product);
-//        }
+        ToIntFunction<Product> compareByQuantity = product -> product.getQuantity();
+        Function<Product, String> compareByName = product -> product.getName();
+
+        products.sort(Comparator.comparingInt(compareByQuantity).thenComparing(compareByName));
+
+        products.forEach(product -> System.out.println(product));
     }
 }
