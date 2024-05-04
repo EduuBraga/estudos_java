@@ -56,6 +56,10 @@ public class Product {
         this.status = status;
     }
 
+    public void inactivate() {
+        status = Status.INACTIVE;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
