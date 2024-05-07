@@ -19,12 +19,8 @@ public class BaggageService {
             throw new RuntimeException("Quantidade de bagagens inválido.");
         }
 
-        Optional<Reserve> reserve = reserveService.search(reserveCode);
-
-        if (reserve.isPresent()) {
-            reserve.get().addBaggage(qtyBaggage);
-        } else {
-            throw new ReserveNotFoundException("Reserva não existe");
-        }
+        reserveService.search(reserveCode)
+                .orElseThrow(() -> new ReserveNotFoundException("Reserva não existe"))
+                .addBaggage(qtyBaggage);
     }
 }

@@ -10,12 +10,12 @@ public class Main {
 
         Flight flight = new Flight("V467D1", "SDU", "UNA");
 
-        reserveService.add(new Reserve("F1122D1", flight, "Eduardo Braga"));
-        reserveService.add(new Reserve("F1133D2", flight, "João Fonseca"));
-        reserveService.add(new Reserve("F1144D3", flight, "Maria Antonieta"));
-        reserveService.add(new Reserve("F1155D4", flight, "ei sei shin"));
+        reserveService.add(new Reserve("F112D1", flight, "Eduardo Braga"));
+        reserveService.add(new Reserve("F113D2", flight, "João Fonseca"));
+        reserveService.add(new Reserve("F114D3", flight, "Maria Antonieta"));
+        reserveService.add(new Reserve("F115D4", flight, "ei sei shin"));
 
-        baggageService.contract("F1122D1", 3);
+        baggageService.contract("F112D1", 3);
 
         reserveService.getReserves().forEach(System.out::println);
     }
