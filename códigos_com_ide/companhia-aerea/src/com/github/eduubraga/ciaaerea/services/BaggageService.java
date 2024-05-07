@@ -4,6 +4,7 @@ import com.github.eduubraga.ciaaerea.Reserve;
 import com.github.eduubraga.ciaaerea.ReserveNotFoundException;
 
 import java.util.Objects;
+import java.util.Optional;
 
 public class BaggageService {
     private final ReserveService reserveService;
@@ -18,12 +19,12 @@ public class BaggageService {
             throw new RuntimeException("Quantidade de bagagens inválido.");
         }
 
-        Reserve reserve = reserveService.search(reserveCode);
+        Optional<Reserve> reserve = reserveService.search(reserveCode);
 
-        if (reserve == null) {
-            throw new ReserveNotFoundException("Reserva nãoi existe");
+        if (reserve.isPresent()) {
+            reserve.get().addBaggage(qtyBaggage);
+        } else {
+            throw new ReserveNotFoundException("Reserva não existe");
         }
-
-        reserve.addBaggage(qtyBaggage);
     }
 }

@@ -19,17 +19,14 @@ public class ReserveService {
         }
     }
 
-    public Reserve search(String code) {
-        Reserve reserveFound = null;
-
+    public Optional<Reserve> search(String code) {
         for (Reserve reserve : reserves) {
             if (reserve.getCode().equals(code)) {
-                reserveFound = reserve;
-                break;
+                return Optional.of(reserve);
             }
         }
 
-        return reserveFound;
+        return Optional.empty();
     }
 
 }
