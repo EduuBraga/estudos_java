@@ -1,26 +1,35 @@
 package com.github.eduubraga.stock;
 
 import java.math.BigDecimal;
+import java.util.Collections;
+import java.util.HashSet;
 import java.util.Objects;
+import java.util.Set;
 
 public class Product {
+
     public enum Status {
         ACTIVE, INACTIVE;
     }
 
     private String name;
-    private BigDecimal price = BigDecimal.ZERO;
+    private BigDecimal price;
     private int quantity;
     private Status status = Status.ACTIVE;
+    private Supplier supplier;
+    private final Set<Category> categories = new HashSet<>();
 
-    public Product(String name, BigDecimal price, int quantity) {
+    public Product(String name, BigDecimal price, int quantity, Supplier supplier, Category... categories) {
         this.name = name;
-        this.price.add(price);
+        this.price = price;
         this.quantity = quantity;
+        this.supplier = supplier;
+        this.categories.addAll(Set.of(categories));
     }
 
-    public Product(String name, BigDecimal price, int quantity, Status status) {
-        this(name, price, quantity);
+    public Product(String name, BigDecimal price, int quantity, Status status,
+                   Supplier supplier, Category... categories) {
+        this(name, price, quantity, supplier, categories);
         this.status = status;
     }
 
@@ -52,12 +61,36 @@ public class Product {
         return status;
     }
 
-    public void setStatus(Status status) {
-        this.status = status;
+    public void activate() {
+        status = Status.ACTIVE;
     }
 
     public void inactivate() {
         status = Status.INACTIVE;
+    }
+
+    public Supplier getSupplier() {
+        return supplier;
+    }
+
+    public void setSupplier(Supplier supplier) {
+        this.supplier = supplier;
+    }
+
+    public Set<Category> getCategories() {
+        return Collections.unmodifiableSet(categories);
+    }
+
+    public void addCategory(Category category) {
+        this.categories.add(category);
+    }
+
+    public void removeCategory(Category category) {
+        this.categories.remove(category);
+    }
+
+    public boolean haveStock() {
+        return this.quantity > 0;
     }
 
     @Override
@@ -76,10 +109,12 @@ public class Product {
     @Override
     public String toString() {
         return "Product{" +
-                "description='" + name + '\'' +
+                "name='" + name + '\'' +
                 ", price=" + price +
                 ", quantity=" + quantity +
                 ", status=" + status +
+                ", supplier=" + supplier +
+                ", categories=" + categories +
                 '}';
     }
 }

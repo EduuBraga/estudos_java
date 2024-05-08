@@ -1,26 +1,43 @@
+import com.github.eduubraga.stock.Category;
 import com.github.eduubraga.stock.Product;
+import com.github.eduubraga.stock.Supplier;
 import com.github.eduubraga.stock.services.ServiceProductInactivation;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.stream.Stream;
 
 public class Main {
     public static void main(String[] args) {
         ArrayList<Product> products = new ArrayList<>();
 
-        products.add(new Product("Leite em pó 1KG", new BigDecimal("28.25"), 0));
-        products.add(new Product("Café puro 250G", new BigDecimal("7.90"), 20));
-        products.add(new Product("Leite de coco menina 200ML",
-                new BigDecimal("2.50"), 24, Product.Status.INACTIVE));
-        products.add(new Product("Arroz 101 T.1 1KG", new BigDecimal("5.29"), 0));
-        products.add(new Product("Macarrão bonsabor 400G", new BigDecimal("2.45"), 14));
+        Supplier supplierCocaCoca = new Supplier("CB DISTRIBUIDORA");
+        Supplier supplierBetania = new Supplier("Alvoar Lacteos");
+        Supplier supplierAmbev = new Supplier("MC Comercial e Varejista");
+        Supplier supplierSG = new Supplier("V Cunha S.G");
 
-        ServiceProductInactivation serviceInactivation = new ServiceProductInactivation();
+        Category categoryDrinks = new Category("Drinks");
+        Category categoryDairies = new Category("Dairies");
 
-//        products.forEach(product ->  serviceInactivation.process(product));
-        products.forEach(serviceInactivation::process);
+        products.add(new Product("Coca cola 1L", new BigDecimal("6.00"), 6,
+                Product.Status.INACTIVE, supplierCocaCoca, categoryDrinks));
+        products.add(new Product("Coca cola 2L", new BigDecimal("10.00"), 6,
+                Product.Status.INACTIVE, supplierCocaCoca, categoryDrinks));
+        products.add(new Product("Skol 300ML", new BigDecimal("2.50"), 23,
+                Product.Status.INACTIVE, supplierAmbev, categoryDrinks));
+        products.add(new Product("Skol lata 350ML", new BigDecimal("3.00"), 12,
+                Product.Status.INACTIVE, supplierAmbev, categoryDrinks));
+        products.add(new Product("Leite condensado betania", new BigDecimal("6.00"), 27,
+                Product.Status.INACTIVE, supplierBetania, categoryDairies));
+        products.add(new Product("Serra grande 510ml S/G", new BigDecimal("6.00"), 0,
+                Product.Status.INACTIVE, supplierSG, categoryDrinks));
 
-        products.forEach(System.out::println);
+        Stream<Product> stream = products.stream();
+
+        stream.forEach(product -> {
+            product.activate();
+            System.out.println(product);
+        });
     }
 }
