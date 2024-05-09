@@ -61,6 +61,14 @@ public class Product {
         return status;
     }
 
+    public boolean isActive() {
+        return Status.ACTIVE.equals(status);
+    }
+
+    public boolean isInactive() {
+        return Status.INACTIVE.equals(status);
+    }
+
     public void activate() {
         status = Status.ACTIVE;
     }
@@ -113,7 +121,7 @@ public class Product {
                 ", price=" + price +
                 ", quantity=" + quantity +
                 ", status=" + status +
-                ", supplier=" + supplier +
+                ", supplier=" + supplier.name() +
                 ", categories=" + categories +
                 '}';
     }
