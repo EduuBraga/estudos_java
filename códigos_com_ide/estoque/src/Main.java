@@ -34,15 +34,10 @@ public class Main {
         products.add(new Product("Serra grande 510ml S/G", new BigDecimal("6.00"), 0,
                 Product.Status.INACTIVE, supplierSG, categoryDrinks));
 
-        Optional<Product> productOptional = products.stream()
-                .peek(System.out::println)
+        products.stream()
                 .filter(Product::haveStock)
-                .filter(Product::isInactive)
-                .findFirst();
-
-        Product product = productOptional.orElseThrow(
-                () -> new RuntimeException("Sem produto na lista com essas condições"));
-
-        System.out.println(product);
+                .map(Product::getSupplier)
+                .distinct()
+                .forEach(System.out::println);
     }
 }
