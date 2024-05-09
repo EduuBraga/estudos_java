@@ -6,6 +6,7 @@ import com.github.eduubraga.stock.services.ServiceProductInactivation;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Comparator;
+import java.util.Optional;
 import java.util.stream.Stream;
 
 public class Main {
@@ -33,11 +34,15 @@ public class Main {
         products.add(new Product("Serra grande 510ml S/G", new BigDecimal("6.00"), 0,
                 Product.Status.INACTIVE, supplierSG, categoryDrinks));
 
-        Stream<Product> stream = products.stream();
+        Optional<Product> productOptional = products.stream()
+                .peek(System.out::println)
+                .filter(Product::haveStock)
+                .filter(Product::isInactive)
+                .findFirst();
 
-        stream.forEach(product -> {
-            product.activate();
-            System.out.println(product);
-        });
+        Product product = productOptional.orElseThrow(
+                () -> new RuntimeException("Sem produto na lista com essas condições"));
+
+        System.out.println(product);
     }
 }
