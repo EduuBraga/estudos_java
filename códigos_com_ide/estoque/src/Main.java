@@ -4,6 +4,8 @@ import com.github.eduubraga.stock.Supplier;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Optional;
+import java.util.OptionalInt;
 import java.util.function.IntBinaryOperator;
 import java.util.stream.IntStream;
 
@@ -61,18 +63,52 @@ public class Main {
 //
 //        System.out.println(resultTotalQuantityProducts);
 
-        int resultTotalQuantityProducts = products.stream()
-                .filter(Product::haveStock)
-                .map(Product::getQuantity)
-                .reduce(0, Integer::sum);
+//        int resultTotalQuantityProducts = products.stream()
+//                .filter(Product::haveStock)
+//                .map(Product::getQuantity)
+//                .reduce(0, Integer::sum);
+//
+//        System.out.println(resultTotalQuantityProducts);
+//
+//        String names = products.stream()
+//                .map(Product::getName)
+//                .reduce("Nomes:", (sub, valueCurrent) -> "%s %s, ".formatted(sub, valueCurrent));
+//
+//        System.out.println(names);
 
-        System.out.println(resultTotalQuantityProducts);
+        // --- Reduce com BigDecimal & funcão combinação
+//        BigDecimal valuesProducts = products.stream()
+//                .map(product -> product.getPrice().multiply(new BigDecimal(product.getQuantity())))
+//                .reduce(BigDecimal.ZERO, BigDecimal::add);
+//
+//        System.out.println(valuesProducts);
 
-        String names = products.stream()
-                .map(Product::getName)
-                .reduce("Nomes:", (sub, valueCurrent) -> "%s %s, ".formatted(sub, valueCurrent));
+//        BigDecimal valuesProducts = products.stream()
+//                .reduce(BigDecimal.ZERO, (sub, product) -> {
+//                    BigDecimal valueStockProduct = product.getPrice().multiply(new BigDecimal(product.getQuantity()));
+//                    return sub.add(valueStockProduct);
+//                }, BigDecimal::add);
+//
+//        System.out.println(valuesProducts);
 
-        System.out.println(names);
+        // --- Reduce retornando um Optinal
+//        ArrayList<Product> products1 = new ArrayList<>();
+//
+//        OptionalInt bigQuantityOptional = products1.stream()
+//                        .mapToInt(Product::getQuantity)
+//                .reduce(Integer::max);
+//
+//        int bigQuantity = bigQuantityOptional.orElseThrow(() -> new RuntimeException("Nenhum produto com estoque"));
+//
+//        System.out.println(bigQuantity);
+
+        Optional<BigDecimal> bigPriceOptional = products.stream()
+                .map(Product::getPrice)
+                .reduce((num1, num2) -> BigDecimal.valueOf(Math.max(num1.intValue(), num2.intValue())));
+
+        BigDecimal bigPrice = bigPriceOptional.orElseThrow(() -> new RuntimeException("Nenhum produto encontrado"));
+
+        System.out.println(bigPrice);
     }
 
 }
