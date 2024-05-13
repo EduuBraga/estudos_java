@@ -4,6 +4,7 @@ import com.github.eduubraga.stock.Supplier;
 
 import java.math.BigDecimal;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Optional;
 import java.util.OptionalInt;
 import java.util.function.IntBinaryOperator;
@@ -102,13 +103,49 @@ public class Main {
 //
 //        System.out.println(bigQuantity);
 
-        Optional<BigDecimal> bigPriceOptional = products.stream()
-                .map(Product::getPrice)
-                .reduce((num1, num2) -> BigDecimal.valueOf(Math.max(num1.intValue(), num2.intValue())));
+//        Optional<BigDecimal> bigPriceOptional = products.stream()
+//                .map(Product::getPrice)
+//                .reduce((num1, num2) -> BigDecimal.valueOf(Math.max(num1.intValue(), num2.intValue())));
+//
+//        BigDecimal bigPrice = bigPriceOptional.orElseThrow(() -> new RuntimeException("Nenhum produto encontrado"));
+//
+//        System.out.println(bigPrice);
 
-        BigDecimal bigPrice = bigPriceOptional.orElseThrow(() -> new RuntimeException("Nenhum produto encontrado"));
+        // --- Operação de Reduce especiais
+//        int resultSumQunatityStock = products.stream()
+//                .mapToInt(Product::getQuantity)
+//                .sum();
+//
+//        System.out.println(resultSumQunatityStock);
+//
+//        double averageStockProducts = products.stream().
+//                mapToInt(Product::getQuantity)
+//                .average()
+//                .orElseThrow(() -> new RuntimeException("Nenhum produto encontrado"));
+//
+//        System.out.println(averageStockProducts);
+//
+//        long productsInStock = products.stream()
+//                .filter(Product::haveStock)
+//                .count();
+//
+//        System.out.println(productsInStock);
+//
+//        int productWithTheMostStock  = products.stream()
+//                .filter(Product::haveStock)
+//                .mapToInt(Product::getQuantity)
+//                .max()
+//                .orElseThrow(() -> new RuntimeException("Nenhum produto encontrado"));
+//
+//        System.out.println(productWithTheMostStock);
+//
+//        Product cheapestProduct = products.stream()
+//                .filter(Product::haveStock)
+//                .min(Comparator.comparing(Product::getPrice))
+//                .orElseThrow(() -> new RuntimeException("Nenhum produto encontrado"));
+//
+//        System.out.println(cheapestProduct);
 
-        System.out.println(bigPrice);
     }
 
 }
