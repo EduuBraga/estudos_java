@@ -3,11 +3,9 @@ import com.github.eduubraga.stock.Product;
 import com.github.eduubraga.stock.Supplier;
 
 import java.math.BigDecimal;
-import java.util.ArrayList;
-import java.util.Comparator;
-import java.util.Optional;
-import java.util.OptionalInt;
+import java.util.*;
 import java.util.function.IntBinaryOperator;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public class Main {
@@ -146,6 +144,24 @@ public class Main {
 //
 //        System.out.println(cheapestProduct);
 
+
+        // -- Collect
+        List<Category> categories = products.stream()
+                .flatMap(product -> product.getCategories().stream())
+                .distinct()
+                .collect(() -> new ArrayList<>(),
+                        (list, element) -> list.add(element),
+                        (list1, list2) -> list1.addAll(list2));
+
+        categories.forEach(category -> System.out.println(category.name()));
+
+        List<BigDecimal> prices = products.stream()
+                .map(Product::getPrice)
+                .collect(ArrayList::new,
+                        ArrayList::add,
+                        ArrayList::addAll);
+
+        System.out.println(prices);
     }
 
 }
