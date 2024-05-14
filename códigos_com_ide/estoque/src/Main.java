@@ -145,23 +145,85 @@ public class Main {
 //        System.out.println(cheapestProduct);
 
 
-        // -- Collect
-        List<Category> categories = products.stream()
-                .flatMap(product -> product.getCategories().stream())
-                .distinct()
-                .collect(() -> new ArrayList<>(),
-                        (list, element) -> list.add(element),
-                        (list1, list2) -> list1.addAll(list2));
+        // --- Collect
+//        List<Category> categories = products.stream()
+//                .flatMap(product -> product.getCategories().stream())
+//                .distinct()
+//                .collect(() -> new ArrayList<>(),
+//                        (list, element) -> list.add(element),
+//                        (list1, list2) -> list1.addAll(list2));
+//
+//        categories.forEach(category -> System.out.println(category.name()));
+//
+//        List<BigDecimal> prices = products.stream()
+//                .map(Product::getPrice)
+//                .collect(ArrayList::new,
+//                        ArrayList::add,
+//                        ArrayList::addAll);
+//
+//        System.out.println(prices);
 
-        categories.forEach(category -> System.out.println(category.name()));
+        // --- Coletores padrões
+//        List<Category> categories = products.stream()
+//                .flatMap(product -> product.getCategories().stream())
+//                .distinct()
+//                .collect(Collectors.toCollection(ArrayList::new));
+//                .collect(Collectors.toList());
+//
+//        System.out.println(categories);
+//
+//        List<String> names = products.stream()
+//                .map(Product::getName)
+//                .toList();
+//                .collect(Collectors.toUnmodifiableList());
+//
+//        System.out.println(names);
 
-        List<BigDecimal> prices = products.stream()
-                .map(Product::getPrice)
-                .collect(ArrayList::new,
-                        ArrayList::add,
-                        ArrayList::addAll);
+        // --- Coletando em mapas
+//        Map<String, Integer> stockMap = products.stream()
+//                .filter(Product::haveStock)
+//                .collect(Collectors.toMap(Product::getName, Product::getQuantity));
+//
+//        System.out.println(stockMap);
 
-        System.out.println(prices);
+        // --- Coletando e agrupando
+//        Map<Supplier, List<Product>> productsBySupplier = products.stream()
+//                .filter(Product::haveStock)
+//                .collect(Collectors.groupingBy(Product::getSupplier));
+//
+//        productsBySupplier.forEach((supplier, productsSupplier) -> {
+//            System.out.println(supplier.name());
+//            System.out.println("---------------------------");
+//            productsSupplier.forEach(product -> System.out.println(product.getName()));
+//            System.out.println();
+//        });
+
+        // Collectors.groupingBy()
+//        Map<String, Long> productsBySupplier = products.stream()
+//                .filter(Product::haveStock)
+//                .collect(Collectors.groupingBy(
+//                        product -> product.getSupplier().name(), Collectors.counting()));
+//
+//        System.out.println(productsBySupplier);
+//
+//        Map<String, Integer> productInventoryBySupplier = products.stream()
+//                .filter(Product::haveStock)
+//                .collect(Collectors.groupingBy(
+//                        product -> product.getSupplier().name(),
+//                        Collectors.summingInt(Product::getQuantity)));
+//
+//        System.out.println(productInventoryBySupplier);
+
+        // --- Collectors.partitioningBy()
+        Map<Boolean, List<Product>> productsInStock = products.stream()
+                .collect(Collectors.partitioningBy(Product::haveStock));
+
+        productsInStock.forEach((key, productsValue) -> {
+            System.out.println(key);
+            System.out.println("--------------------------------");
+            productsValue.forEach(product -> System.out.println(product.getName()));
+            System.out.println();
+        });
     }
 
 }
