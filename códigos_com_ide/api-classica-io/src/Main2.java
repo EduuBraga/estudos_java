@@ -17,7 +17,15 @@ public class Main2 {
         System.out.println(fileLog3.getAbsoluteFile());
         System.out.println(fileLog3.getCanonicalFile());
 
-        new File("C:\\www\\repositories\\REPO-estudos_java\\códigos_com_ide\\api-classica-io\\logs").mkdir();
-        fileLog2.getCanonicalFile().createNewFile();
+        System.out.println("---------------------");
+
+        // Renomeando e removendo
+        File folderLogs = new File("C:\\www\\repositories\\REPO-estudos_java\\códigos_com_ide\\api-classica-io\\logs");
+        File folderLogOutput = new File("C:\\www\\repositories\\REPO-estudos_java\\códigos_com_ide\\api-classica-io\\logsOutput");
+
+        System.out.println(folderLogs.renameTo(folderLogOutput));
+
+        File fileRemove = new File(folderLogOutput, "logInput.txt");
+        System.out.println(fileRemove.delete());
     }
 }
