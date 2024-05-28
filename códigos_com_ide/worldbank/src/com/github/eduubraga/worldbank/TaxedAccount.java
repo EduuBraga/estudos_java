@@ -1,6 +1,6 @@
 package com.github.eduubraga.worldbank;
 
-import com.javabank.Account;
+import com.github.eduubraga.worldbank.javabank.Account;
 
 public class TaxedAccount extends BaseAccount {
     public static final double VALUE_TAX_MOVEMENT = 0.03;

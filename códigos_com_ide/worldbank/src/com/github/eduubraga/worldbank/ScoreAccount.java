@@ -1,6 +1,6 @@
 package com.github.eduubraga.worldbank;
 
-import com.javabank.Account;
+import com.github.eduubraga.worldbank.javabank.Account;
 
 public class ScoreAccount extends BaseAccount {
     private int score;
