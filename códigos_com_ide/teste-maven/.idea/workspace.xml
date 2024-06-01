@@ -5,8 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="072a9989-8283-448e-a8c6-2c0e2d335863" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../crm-api-maven/src/main/java/com/github/eduubraga/crm/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../crm-api-maven/src/main/java/com/github/eduubraga/crm/ClientRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../crm-app-maven/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../crm-app-maven/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -23,36 +22,36 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../.." />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "EduuBraga"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;EduuBraga&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/EduuBraga/estudos_java.git",
-    "accountId": "684a4999-f4db-4605-8fec-99458802582c"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/EduuBraga/estudos_java.git&quot;,
+    &quot;accountId&quot;: &quot;684a4999-f4db-4605-8fec-99458802582c&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2hBwGmXrM5icICHmxzmkZ0XdfnF" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "app.teamhub.selectedTeam": "github.com/EduuBraga/estudos_java",
-    "app.teamhub.trackedBranches": "-1k0ffmk/main",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "settings.editor.selected.configurable": "preferences.keymap"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;app.teamhub.selectedTeam&quot;: &quot;github.com/EduuBraga/estudos_java&quot;,
+    &quot;app.teamhub.trackedBranches&quot;: &quot;-1k0ffmk/main&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.keymap&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
