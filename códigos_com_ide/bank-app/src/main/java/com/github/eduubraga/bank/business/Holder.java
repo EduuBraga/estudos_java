@@ -1,10 +1,12 @@
 package com.github.eduubraga.bank.business;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.util.Objects;
-import java.util.logging.Logger;
 
 public class Holder {
-    private static final Logger logger = Logger.getLogger(Holder.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(Holder.class);
 
     private final String name;
     private final String cpf;
@@ -17,7 +19,7 @@ public class Holder {
         this.cpf = cpf;
 
         if (name.length() <= 10) {
-            logger.warning(String.format("O nome %s é muito curto, é recomendado no mínimo 10 letras", name));
+            logger.warn("O nome {} é muito curto, é recomendado no mínimo 10 letras", name);
         }
     }
 

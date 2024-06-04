@@ -1,8 +1,0 @@
-jun. 03, 2024 5:53:50 PM com.github.eduubraga.bank.business.CurrentAccount deposit
-INFORMAÇÕES: Depósito de 3000,00 realizado na conta 999/3000
-jun. 03, 2024 5:53:50 PM com.github.eduubraga.bank.Main main
-GRAVE: Erro na manipulação das operações da conta 999/3000
-java.lang.IllegalArgumentException: Valor do saque deve ser maior que 0
-	at com.github.eduubraga.bank.business.CurrentAccount.withdath(CurrentAccount.java:55)
-	at com.github.eduubraga.bank.Main.main(Main.java:21)
-

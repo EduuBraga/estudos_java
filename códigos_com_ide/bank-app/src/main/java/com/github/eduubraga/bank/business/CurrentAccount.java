@@ -1,11 +1,13 @@
 package com.github.eduubraga.bank.business;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import java.math.BigDecimal;
 import java.util.Objects;
-import java.util.logging.Logger;
 
 public class CurrentAccount {
-    private static final Logger logger = Logger.getLogger(CurrentAccount.class.getName());
+    private static final Logger logger = LoggerFactory.getLogger(CurrentAccount.class);
 
     private final Holder holder;
     private final int agency;
@@ -46,8 +48,9 @@ public class CurrentAccount {
 
         setBalance(balance.add(depositAmount));
 
-        logger.info(String.format("Depósito de %.2f realizado na conta %s",
-                depositAmount, getAgency() + "/" + getNumber()));
+        logger.debug("Utilizando método de depósito.");
+        logger.info("Depósito de {} realizado na conta {}/{}",
+                depositAmount, getAgency(), getNumber());
     }
 
     public void withdath(BigDecimal withdrawalAmount) {
@@ -60,8 +63,9 @@ public class CurrentAccount {
 
         setBalance(balance.subtract(withdrawalAmount));
 
-        logger.info(String.format("Saque de %.2f realizado na conta %s",
-                withdrawalAmount, getAgency() + "/" + getNumber()));
+        logger.debug("Utilizando método  de saque.");
+        logger.info("Saque de {} realizado na conta {}/{}",
+                withdrawalAmount, getAgency(), getNumber());
     }
 
     @Override
